@@ -5,13 +5,13 @@
   - lastName : string
   - firstName : string
   - email : string
-  - telephone : string
+  - phone : string
 
   + getId() : int
   + getLastName() : string
   + getFirstName() : string
   + getEmail() : string
-  + getTelephone() : string
+  + getPhone() : string
 }
 
 class Reservations {
