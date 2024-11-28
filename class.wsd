@@ -2,81 +2,80 @@
 
   class Users {
   - id : int
-  - nom : string
-  - prenom : string
+  - lastName : string
+  - firstName : string
   - email : string
   - telephone : string
 
   + getId() : int
-  + getNom() : string
-  + getPrenom() : string
+  + getLastName() : string
+  + getFirstName() : string
   + getEmail() : string
   + getTelephone() : string
 }
 
 class Reservations {
   - id : int
-  - dateDebut : date
-  - dateFin : date
-  - datemodification : date
-  - nombre_de_jour : int
+  - startDate : date
+  - endDate : date
+  - modificationDate : date
+  - numberOfDays : int
 
   + getId() : int
-  + getDateDebut() : date
-  + getDateFin() : date
+  + getStartDate() : date
+  + getEndDate() : date
   + getDateModification() : date
 }
 enum typeReservations {
-  COURTDUREE
-  LONGUEDUREE
+  SHORTDURATION
+  LONGDURATION
 }
 
 class Annonces {
   - id : int
-  
+  - publicationDate : date
 
-    - datePublication : date
   + getId( : int)
-  + getDatePublication() : date
+  + getPublicationDate() : date
 }
 
 class Logements {
   - id : int
-  - codePostal : string
-  - departement : string
-  - ville : string
-  - disponibilite : boolean
-  - nombreChambres : int
-  - niveauEtage : int
-  - prixLoyer : float
-  - balcon : boolean
+  - postalCode : string
+  - department : string
+  - city : string
+  - availability : boolean
+  - numberOfRooms : int
+  - floorNumber : int
+  - rentPrice : float
+  - balcony : boolean
   - garage : boolean
-  - douche : boolean
-  - ascenseur : boolean
-  - vise_à_vise : boolean
-  - charge_compris : boolean
+  - shower : boolean
+  - elevator : boolean
+  - nextToNeighbor : boolean
+  - chargesIncluded : boolean
   
   + getId() : int
-  + getAdresseComplete() : string
-  + isDisponible() : boolean
-  + getNombreChambres() : int
-  + getNiveauEtage() : int
-  + getPrixLoyer() : float
-  + getBalcon() : boolean
-  + getAscenseur() : boolean
-  + getVise_à_vise() : boolean
-  + getCharge_compris() : boolean
+  + getFullAddress() : string
+  + isAvailable() : boolean
+  + getNumberOfRooms() : int
+  + getFloorNumber() : int
+  + getRentPrice() : float
+  + getBalcony() : boolean
+  + getElevator() : boolean
+  + getNextToNeighbor() : boolean
+  + getChargesIncluded() : boolean
   }
 
 enum typeLogement {
-  APPARTEMENTS
-  MAISONS
+  APARTMENT
+  HOUSE
 }
 
-Locataires"0..*" -- "1..*"Reservations: réserve
-Proprietaires"1..*" -- "1..1"Annonces: possède
+Tenants"0..*" -- "1..*"Reservations: réserve
+Owners"1..*" -- "1..1"Annonces: possède
 Annonces"0..*" -- "1..*"Reservations: appartient
-Annonces"1..*" -- "0..*"Logements: appartient
+Annonces"1..*" -- "0..*"Accommodations: appartient
 
 
 
