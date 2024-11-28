@@ -1,0 +1,84 @@
+@startuml DIAGRAMMECLASS
+
+  class Users {
+  - id : int
+  - nom : string
+  - prenom : string
+  - email : string
+  - telephone : string
+
+  + getId() : int
+  + getNom() : string
+  + getPrenom() : string
+  + getEmail() : string
+  + getTelephone() : string
+}
+
+class Reservations {
+  - id : int
+  - dateDebut : date
+  - dateFin : date
+  - datemodification : date
+  - nombre_de_jour : int
+
+  + getId() : int
+  + getDateDebut() : date
+  + getDateFin() : date
+  + getDateModification() : date
+}
+enum typeReservations {
+  COURTDUREE
+  LONGUEDUREE
+}
+
+class Annonces {
+  - id : int
+  
+
+    - datePublication : date
+  + getId( : int)
+  + getDatePublication() : date
+}
+
+class Logements {
+  - id : int
+  - codePostal : string
+  - departement : string
+  - ville : string
+  - disponibilite : boolean
+  - nombreChambres : int
+  - niveauEtage : int
+  - prixLoyer : float
+  - balcon : boolean
+  - garage : boolean
+  - douche : boolean
+  - ascenseur : boolean
+  - vise_à_vise : boolean
+  - charge_compris : boolean
+  
+  + getId() : int
+  + getAdresseComplete() : string
+  + isDisponible() : boolean
+  + getNombreChambres() : int
+  + getNiveauEtage() : int
+  + getPrixLoyer() : float
+  + getBalcon() : boolean
+  + getAscenseur() : boolean
+  + getVise_à_vise() : boolean
+  + getCharge_compris() : boolean
+  }
+
+enum typeLogement {
+  APPARTEMENTS
+  MAISONS
+}
+
+Locataires"0..*" -- "1..*"Reservations: réserve
+Proprietaires"1..*" -- "1..1"Annonces: possède
+Annonces"0..*" -- "1..*"Reservations: appartient
+Annonces"1..*" -- "0..*"Logements: appartient
+
+
+
+    
+@enduml
