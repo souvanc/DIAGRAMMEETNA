@@ -1,0 +1,47 @@
+CREATE TABLE Users (
+  UserID SERIAL PRIMARY KEY,
+  LastName VARCHAR(50) NOT NULL,
+  FirstName VARCHAR(50) NOT NULL,
+  Email VARCHAR(100) UNIQUE NOT NULL,
+  Password VARCHAR(255) NOT NULL,
+  Phone VARCHAR(10) UNIQUE NOT NULL,
+  UserType VARCHAR(10) CHECK (UserType IN ('Tenants', 'Owners')),
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE Users (
+  UserID SERIAL PRIMARY KEY,
+  Username VARCHAR(50) UNIQUE NOT NULL,
+  Email VARCHAR(100) UNIQUE NOT NULL,
+  PasswordHash VARCHAR(255) NOT NULL,
+  UserType VARCHAR(10) CHECK (UserType IN ('Tenants', 'Owners')) createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+ALTER TABLE Users
+ADD CONSTRAINT chk_UserType CHECK (UserType IN ('Tenants', 'Owners'));
+INSERT INTO Users (
+    LastName,
+    FirstName,
+    Email,
+    password,
+    Phone,
+    UserType,
+    createdAt
+  )
+VALUES (
+    'Souvan',
+    'Chris',
+    'souvan_c@alternance.net',
+    '123',
+    '0612345678',
+    'Owners',
+    now()
+  );
+CREATE TABLE Users (
+  UserID SERIAL PRIMARY KEY,
+  LastName VARCHAR(50) NOT NULL,
+  FirstName VARCHAR(50) NOT NULL,
+  Email VARCHAR(100) UNIQUE NOT NULL,
+  Password VARCHAR(255) NOT NULL,
+  Phone VARCHAR(15),
+  UserType VARCHAR(20),
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

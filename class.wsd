@@ -36,6 +36,7 @@ class Reservations {
   + getCreatedAt() : date
   + getDateUpdate() : date
 }
+
 enum typeReservations {
   SHORTDURATION
   LONGDURATION
