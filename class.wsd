@@ -5,13 +5,19 @@
   - lastName : string
   - firstName : string
   - email : string
+  - password : string
   - phone : string
+  - creationDate: date
+  - modificationDate: date
 
   + getId() : int
   + getLastName() : string
   + getFirstName() : string
   + getEmail() : string
+  + getPassword() : string
   + getPhone() : string
+  + getCreationDate() : date
+  + getModificationDate() : date
 }
 
 class Reservations {
