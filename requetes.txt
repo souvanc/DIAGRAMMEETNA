@@ -45,3 +45,48 @@ CREATE TABLE Users (
   UserType VARCHAR(20),
   createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-----
+
+CREATE TABLE Reservations {
+  ID SERIAL PRIMARY KEY,
+  StartDate DATE NOT NULL,
+  EndDate DATE NOT NULL,
+  UpdatedDate DATE NOT NULL,
+  NumberOfDays INT NOT NULL
+};
+
+CREATE TABLE Linstings {
+  ID SERIAL PRIMARY KEY, (voir si on met "ID INT PRIMARY KEY AUTO_INCREMENT,")
+  CreatedAt DATE NOT NULL,
+  UpdatedAt DATE NOT NULL,
+  Image VARCHAR(255) NOT NULL,
+  ImageData LONGBLOB NOT NULL
+};
+
+CREATE TABLE Accommodations {
+  ID SERIAL PRIMARY KEY,
+  PostalCode VARCHAR(10) NOT NULL,
+  Department VARCHAR(255) NOT NULL,
+  City VARCHAR(255) NOT NULL,
+  Availability BOOLEAN NOT NULL,
+  NumberOfRooms INT NOT NULL,
+  FloorNumber INT NOT NULL,
+  RentPrice FLOAT NOT NULL,
+  Balcony BOOLEAN NOT NULL,
+  Garage BOOLEAN NOT NULL,
+  Shower BOOLEAN NOT NULL,
+  Elevator BOOLEAN NOT NULL,
+  NextToNeighbor BOOLEAN NOT NULL,
+  ChargesIncluded BOOLEAN NOT NULL
+};
+
+CREATE TABLE Departments {
+  ID SERIAL PRIMARY KEY,
+  PostalCode INT NOT NULL
+};
+
+CREATE TABLE City {
+  ID SERIAL PRIMARY KEY,
+  Name VARCHAR(255) NOT NULL
+};
